@@ -1,0 +1,3 @@
+- Pasta e2e – arquivos para teste de integração do projeto com Protractor.
+Configurações para os testes do projeto – verificar a integração e
+comunicação dos componentes da aplicação

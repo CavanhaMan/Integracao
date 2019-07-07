@@ -1,0 +1,111 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="assets/control/usuarioControl.js"></script>
+
+<div class="jumbotron text-center">
+      <p>Usuario works!</p>
+</div>
+<div class="container"> 
+      <br/>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">Cadastro de Usuarios</li>
+        </ol>
+      </nav>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="cadastro-tab" data-toggle="tab" href="#cadastro" role="tab" aria-controls="cadastro" aria-selected="true">Cadastro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="dados-tab" data-toggle="tab" href="#dados" role="tab" aria-controls="dados" aria-selected="false">Dados</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="cadastro" role="tabpanel" aria-labelledby="cadastro-tab">
+              <br />
+              <button type="button" (click)="novo()" class="btn btn-info">Novo</button>
+              <button type="button" (click)="salvar()" class="btn btn-success">Salvar</button>
+              <button type="button" (click)="excluir()" class="btn btn-danger">Excluir</button>
+              <button type="button" (click)="pesquisar()" class="btn btn-warning">Pesquisar</button>
+              <br /><br />
+              <form class="was-validated" #cadastro="ngForm" (ngSubmit)="salvar()">
+                  <div class="form-row">
+                    <div class="form-group col-md-2">
+                      <label for="codigo">Codigo</label>
+                      <input type="text" class="form-control" name="codigo" disabled [(ngModel)]="usuario.codigo">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="nome">Nome</label>
+                      <input type="text" class="form-control is-valid" #nome="ngModel" placeholder="Nome" required [(ngModel)]="usuario.nome" name="nome">
+                      <div [hidden]="nome.valid" class="invalid-feedback">
+                          <p>Nome incompleto</p>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="area">Área de Formação</label>
+                        <input type="text" class="form-control is-valid" #area="ngModel" placeholder="Área de Formação" required [(ngModel)]="usuario.cargo" name="area">
+                        <div [hidden]="area.valid" class="invalid-feedback">Digite a área de formação. </div>
+                      </div>
+                  </div>
+                  <!-- -->
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="endereco">Endereço</label>
+                      <input type="text" class="form-control is-valid" #endereco="ngModel" placeholder="Endereço" required [(ngModel)]="usuario.endereco" name="endereco" >
+                      <div [hidden]="endereco.valid" class="invalid-feedback">Digite o endereço. </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="cidade">Cidade</label>
+                      <input type="text" class="form-control is-valid" #cidade="ngModel" placeholder="Cidade" required [(ngModel)]="usuario.cidade" name="cidade">
+                      <div [hidden]="endereco.valid"class="invalid-feedback">Digite a cidade. </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="cep">CEP</label>
+                        <input type="text" class="form-control is-valid" #cep="ngModel" placeholder="CEP" required [(ngModel)]="usuario.cep" name="cep">
+                        <div [hidden]="cep.valid" class="invalid-feedback">Digite o CEP. </div>
+                    </div>
+                  </div>                
+                  <!-- -->
+                  <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="pais">Pais</label>
+                        <input type="text" class="form-control is-valid" #pais="ngModel" placeholder="Pais" required [(ngModel)]="usuario.pais" name="pais">
+                        <div [hidden]="pais.valid" class="invalid-feedback">Digite o pais. </div>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" class="form-control is-valid" #telefone="ngModel" placeholder="Telefone" required [(ngModel)]="usuario.telefone" name="telefone">
+                        <div [hidden]="telefone.valid" class="invalid-feedback">Digite o telefone. </div>
+                      </div>
+                      <div class="form-group col-md-4">
+                          <label for="email">E-mail</label>
+                          <input type="text" class="form-control is-valid" #email="ngModel"  placeholder="E-mail" required [(ngModel)]="usuario.email" name="email">
+                          <div [hidden]="email.valid" class="invalid-feedback">Digite o E-mail. </div>
+                      </div>
+                    </div> 
+                </form>
+            </div>
+            <div class="table table-hover fade" id="dados" role="tabpanel" aria-labelledby="dados-tab">
+              <br/>
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Codigo</th>
+                      <th scope="col">Login</th>
+                      <th scope="col">Senha</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let usuariosTabela of usuarios">
+                      <a [routerLink] = "[usuariosTabela.codigo]">
+                      <td>{{ usuariosTabela.codigo }}</td></a>
+                      <td>{{ usuariosTabela.login }}</td>
+                      <td>{{ usuariosTabela.senha}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- <span ng-show="(usuarios | filter: criterio).length == 0">Infelizmente  n&atilde;o temos o que voc&ecirc; est&aacute; procurando</span> -->
+            </div>
+        </div>
+  </div>

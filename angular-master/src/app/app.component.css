@@ -1,0 +1,6 @@
+.menuzao:hover { /* Cor para o menu principal */
+    color: yellow;
+}
+a:hover { /* sublinhado para o menu principal */
+    text-decoration: none;
+}

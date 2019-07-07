@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body,
+html {
+  margin: 0 auto;
+}
+
+mat-toolbar{
+  height: 64px;
+  position: fixed;
+  z-index: 100;
+  width: 100% !important;
+}
+
+.InitialText {
+  color:#2F4F4F;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo{margin-top: 0%;}
