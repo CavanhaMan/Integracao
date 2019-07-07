@@ -1,0 +1,79 @@
+fieldset{
+	border: 2px solid #3F51B5;
+	background: #e6ffff;
+	width:400px;
+	box-shadow: 10px 10px 5px #a6a6a6;
+	border-radius: 10px;
+	font-size:20px;
+    font-family: Verdana;
+    height: 300px;
+
+    /*codigo para centralizar horizontal e verticalmente:*/
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+h1{
+	text-align:center;
+	color:#3F51B5;
+	margin-top:0px;
+	font-size:25px;
+	text-shadow: 2px 2px #cccccc;
+}
+.campo{
+	width: 300px;
+    font-size:20px;
+}
+.pass{width: 270px;}
+.col2{width:300px;}
+.colunas{
+    float:left;
+	margin: 10px;
+}
+.col1{
+    width:60px;
+	text-align:right;
+	margin-left:10px;
+	margin-right:0px;
+	margin-top:15px;
+}
+.pointer {cursor: pointer;}
+.button{
+	width:80px;
+	height:30px;
+	background-color: #3F51B5;
+	color:white;
+	border-radius: 6px;
+	margin: 20px;
+}
+.botao{
+	text-align: center;
+	float:none;
+	clear: both;
+}
+.button:hover {box-shadow: 2px 2px #a6a6a6;}
+.button {
+	-webkit-transition-duration: 0.2s; /* Safari */
+	transition-duration: 0.2s;
+}
+#vesenha1{width:5%;}
+.aviso{
+	color: red;
+	font-size: 14px;
+	width:240px;
+	white-space: nowrap;
+}
+.comdestaque {background-color: Bisque;}
+.semdestaque {background-color: white;}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+.campo{background-color: white !important;}
+legend,#imglogin{
+    margin:0;
+    text-align:center;
+}

@@ -10,17 +10,34 @@
     </div>
     <div class="row">
       <div class="form-group">
-        <input id="password" type="password" class="validate" formControlName="password" [class.invalid]="form.controls['password'].touched &&
-        !form.controls['password'].valid">
-        <label for="password" data-error="Password is mandatory">
-          Password
-        </label>
+        <input id="password" type="password" class="validate" formControlName="password"
+          [class.invalid]="form.controls['password'].touched && !form.controls['password'].valid">
+        <label for="password" data-error="Password is mandatory">Password</label>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
-          Entrar
-        </button>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Entrar</button>
       </div>
     </div>
   </form>
 </div>
+<fieldset>
+  <legend><img id="imglogin" src="assets/img/login3.png" height=100 width=100></legend>
+  <h1>Acesso ao Sistema</h1>
+  <form name="formCad" novalidate="novalidate">
+    <div class="acesso">
+      <div class="colunas col1"><label class="texto pointer" for="txtLogin">Login</label></div>
+      <div class="colunas col2"><input type="text" class="campo" id="txtLogin" maxlength="30" min="1"
+          placeholder="Digite seu nome de usuário" title="Digite seu nome de usuário" required /></div>
+      <div class="colunas col1"><label class="texto pointer" for="txtSenha">Senha</label></div>
+      <div class="colunas col2">
+        <input type="password" class="campo pass" id="txtSenha" maxlength="8" placeholder="Digite sua senha"
+          title="Digite sua senha com no máximo 8 caracteres" required />
+        <img src="assets/img/eye.png" id="vesenha1" onmousedown="mostraPass1()" onmouseup="escondePass1()"
+          title="Mostrar a senha">
+      </div>
+    </div>
+    <div name="botao" class="botao">
+      <input type="submit" class="button pointer" value="Cadastrar" name="cadastrar" title="Clique para cadastrar" />
+    </div>
+  </form>
+</fieldset>
