@@ -2,72 +2,79 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="assets/control/areaConhecimentoControl.js"></script>
-
-<div class="jumbotron text-center">
-        <p>I – linguagens e suas tecnologias; <br>
-        II – matemática e suas tecnologias; <br>
-        III – ciências da natureza e suas tecnologias; <br>
-        IV – ciências humanas e sociais aplicadas; <br>
-        V – formação técnica e profissional </p>
+<div class="jumbotron text-left">
+  <BR><BR>
+  <table align="center">
+    <tr><td><h4>Áreas de Conhecimento</h4></td></tr>
+  </table>
 </div>
-<div class="container"> 
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Área de Conhecimento</li>
+    </ol>
+  </nav>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="cadastro-tab" data-toggle="tab" href="#cadastro" role="tab"
+        aria-controls="cadastro" aria-selected="true">Cadastro</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="dados-tab" data-toggle="tab" href="#dados" role="tab" aria-controls="dados"
+        aria-selected="false">Dados</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="cadastro" role="tabpanel" aria-labelledby="cadastro-tab">
       <br />
-      <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">Cadastro de Área de Conhecimento</li>
-          </ol>
-        </nav>
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="cadastro-tab" data-toggle="tab" href="#cadastro" role="tab" aria-controls="cadastro" aria-selected="true">Cadastro</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="dados-tab" data-toggle="tab" href="#dados" role="tab" aria-controls="dados" aria-selected="false">Dados</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="cadastro" role="tabpanel" aria-labelledby="cadastro-tab">
-              <br />
-              <button type="button" (click)="novo()" class="btn btn-info">Novo</button>
-              <button type="button" (click)="salvar()" class="btn btn-success">Salvar</button>
-              <button type="button" (click)="excluir()" class="btn btn-danger">Excluir</button>
-              <button type="button" (click)="pesquisar()" class="btn btn-warning">Pesquisar</button>
-              <br /><br />
-              <form class="was-validated" #cadastro="ngForm" (ngSubmit)="salvar()">
-                  <div class="form-row">
-                    <div class="form-group col-md-2">
-                      <label for="codigo">Codigo</label>
-                      <input type="text" class="form-control" disabled [(ngModel)]="areaConhecimento.codigo" name="txtCodigo">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="nome">Nome</label>
-                      <input type="text" class="form-control is-valid" #nome="ngModel" required [(ngModel)]="areaConhecimento.nome" name="txtNome">
-                      <div [hidden]="nome.valid" class="invalid-feedback">
-                           Digite o nome.
-                      </div>
-                    </div>
-                  </div>
-                </form>
-            </div>
-            <div class="table table-hover fade" id="dados" role="tabpanel" aria-labelledby="dados-tab">
-              <br/>
-              <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Codigo</th>
-                      <th scope="col">Nome</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor ="let areaConhecimentosTabela of areaConhecimentos">
-                      <a [routerLink] = "[areaConhecimentosTabela.codigo]"> 
-                      <td>{{ areaConhecimentosTabela.codigo }}</td></a>
-                      <td>{{ areaConhecimentosTabela.nome }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!-- <span ng-show="(areaConhecimentos | filter: criterio).length == 0">Infelizmente  n&atilde;o temos o que voc&ecirc; est&aacute; procurando</span> -->
-            </div>
+      <button type="button" (click)="novo()" class="btn btn-info">Novo</button>
+      <button type="button" (click)="salvar()" class="btn btn-success">Salvar</button>
+      <button type="button" (click)="excluir()" class="btn btn-danger">Excluir</button>
+      <button type="button" (click)="pesquisar()" class="btn btn-warning">Pesquisar</button>
+      <br /><br />
+      <form class="was-validated" #cadastro="ngForm" (ngSubmit)="salvar()">
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label for="codigo">Codigo</label>
+            <input type="text" class="form-control" disabled [(ngModel)]="areaConhecimento.codigo" name="txtCodigo">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control is-valid" #nome="ngModel" required
+              [(ngModel)]="areaConhecimento.nome" name="txtNome">
+            <div [hidden]="nome.valid" class="invalid-feedback">Digite o nome.</div>
+          </div>
         </div>
+      </form>
+    </div>
+    <div class="table table-hover fade" id="dados" role="tabpanel" aria-labelledby="dados-tab">
+      <br />
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let areaConhecimentosTabela of areaConhecimentos">
+            <a [routerLink]="[areaConhecimentosTabela.codigo]">
+              <td>{{ areaConhecimentosTabela.codigo }}</td>
+            </a>
+            <td>{{ areaConhecimentosTabela.nome }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <span ng-show="(areaConhecimentos | filter: criterio).length == 0">Infelizmente  n&atilde;o temos o que voc&ecirc; est&aacute; procurando</span> -->
+    </div>
   </div>
-  
+</div>
+<div class="jumbotron text-left">
+  <table align="center"><tr><td><h4>
+      I – linguagens e suas tecnologias<br>
+      II – matemática e suas tecnologias<br>
+      III – ciências da natureza e suas tecnologias<br>
+      IV – ciências humanas e sociais aplicadas<br>
+      V – formação técnica e profissional
+    </h4></td></tr></table>
+</div>
